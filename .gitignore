@@ -11,6 +11,7 @@
 # production
 /build
 now-staging-app.json
+now-production-app.json
 
 # misc
 .DS_Store
