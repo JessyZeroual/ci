@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "node"
+  - 'node'
 before_deploy: npm install -g now
 deploy:
   - provider: script
@@ -20,3 +20,9 @@ deploy:
     skip_cleanup: true
     on:
       tags: true
+  - provider: script
+    script: bash scripts/tag_and_push.sh
+    skip_cleanup: true
+    on:
+      master: true
+      condition: -z $(git tag --points-at $TRAVIS_COMMIT)
